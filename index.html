@@ -40,7 +40,7 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             padding: 20px 0;
             position: sticky;
-            top: 0;
+            top: 40px;
             z-index: 100;
         }
         
@@ -48,6 +48,36 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+        }
+
+        .affiliate-banner {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 14px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 110;
+        }
+        
+        .affiliate-banner a {
+            color: white;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+        
+        .affiliate-label {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 12px;
+            margin-left: 5px;
+            display: inline-block;
+            vertical-align: middle;
         }
         
         .logo {
@@ -231,6 +261,13 @@
     </style>
 </head>
 <body>
+
+    <div class="affiliate-banner">
+        <div class="container">
+            Hinweis: Diese Website enthält Affiliate-Links und Werbung. Bei einem Kauf erhalten wir ggf. eine Provision. <a href="/disclaimer.html" target="_blank">Mehr erfahren</a>
+        </div>
+    </div>
+    
     <header>
         <div class="container header-container">
             <div class="logo">Bitcoin Sicher</div>
@@ -368,7 +405,7 @@
                 <h3>Dokumentation ist wichtig</h3>
                 <p>Führe eine genaue Dokumentation deiner Käufe und Verkäufe, um im Bedarfsfall einen Nachweis gegenüber dem Finanzamt erbringen zu können. Hilfreich sind dabei spezielle Tools::</p>
                 <ul>
-                    <li><a href="https://ldrs.uk/ct-bs" target="_blank" class="highlight">Cointracking</a> - Umfassende Lösung zur Tracking und Steuerberechnung</li>
+                    <li><a href="https://ldrs.uk/ct-bs" target="_blank" class="highlight">Cointracking</a> <span class="affiliate-label">Affiliate-Link</span> - Umfassende Lösung zur Tracking und Steuerberechnung</li>
                     <li>Andere Alternativen wie Accointing oder CryptoTax</li>
                 </ul>
                 
