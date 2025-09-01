@@ -43,6 +43,7 @@ body {
     line-height: 1.4;
     white-space: normal;
 }
+
 .affiliate-banner a {
     color: white;
     font-weight: bold;
@@ -82,6 +83,15 @@ header {
     color: var(--primary-color);
 }
 
+/* Mobile Menu Toggle Button */
+.mobile-menu-toggle {
+    display: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: var(--secondary-color);
+    z-index: 1000;
+}
+
 /* HEADER-NAVIGATION: horizontal auf Desktop, vertikal auf Mobil */
 nav ul.horizontal-list {
     display: flex;
@@ -91,15 +101,18 @@ nav ul.horizontal-list {
     padding-left: 0;
     margin-bottom: 0;
 }
+
 nav ul.horizontal-list li {
     margin: 0;
 }
+
 nav ul.horizontal-list li a {
     text-decoration: none;
     color: var(--secondary-color);
     font-weight: 600;
     transition: color 0.3s;
 }
+
 nav ul.horizontal-list li a:hover {
     color: var(--primary-color);
 }
@@ -115,28 +128,60 @@ nav ul.horizontal-list li:not(:last-child)::after {
 /* Mobiles Layout: Header-Navi wird vertikal, Trenner werden entfernt */
 @media (max-width: 768px) {
     .header-container {
-        flex-direction: column;
-        align-items: flex-start;
-        padding-top: 4px;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
     }
+    
+    .mobile-menu-toggle {
+        display: block;
+    }
+    
+    nav#main-nav {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.98);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 999;
+    }
+    
+    nav#main-nav.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+    
     nav ul.horizontal-list {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
         gap: 0;
         width: 100%;
-        margin-top: 10px;
+        padding: 20px 0;
     }
+    
     nav ul.horizontal-list li {
-        margin: 10px 0 0 0;
+        margin: 10px 0;
+        width: 100%;
+        text-align: center;
     }
+    
     nav ul.horizontal-list li:not(:last-child)::after {
         content: '';
         margin: 0;
     }
+    
+    .mobile-menu-toggle.active i:before {
+        content: "\f00d"; /* FontAwesome X-Symbol */
+    }
 }
 
-/* ...Restliche Styles wie Hero, Section, Footer usw. bleiben unverändert ... */
-
+/* Hero section */
 .hero {
     padding: 80px 0;
     background-color: var(--light-bg);
@@ -278,6 +323,7 @@ footer {
     font-size: 15px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.07);
 }
+
 .copyright .impressum-link {
     display: inline-block;
     background: var(--primary-color);
@@ -290,21 +336,41 @@ footer {
     margin-top: 4px;
     transition: background 0.2s;
 }
+
 .copyright .impressum-link:hover {
     background: #e78208;
 }
+
 .copyright hr {
     border: 0;
     border-top: 1.5px solid rgba(255,255,255,0.15);
     margin: 18px 0 14px 0;
 }
 
+/* Responsive Design */
 @media (max-width: 900px) {
     .container {
-        padding: 0 10px;
+        padding: 0 15px;
     }
+    
     .section-content {
-        gap: 20px;
+        flex-direction: column !important;
+        gap: 30px;
+    }
+    
+    .text-content, .image-content {
+        width: 100%;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .footer-section {
+        width: 100%;
+        margin-bottom: 20px;
     }
 }
 
@@ -312,23 +378,45 @@ footer {
     body {
         padding-top: 90px;
     }
+    
     .affiliate-banner {
         font-size: 14px;
         padding: 10px 0 8px 0;
         min-height: unset;
         line-height: 1.3;
     }
+    
     .logo {
         font-size: 18px;
     }
+    
     header {
         padding: 10px 0;
     }
+    
     .hero {
         padding: 50px 0;
     }
+    
     .hero h1 {
         font-size: 22px;
         margin-top: 1.2em;
+    }
+    
+    .section {
+        padding: 40px 0;
+    }
+    
+    h2 {
+        font-size: 24px;
+    }
+    
+    h3 {
+        font-size: 20px;
+    }
+    
+    .cta {
+        width: 100%;
+        text-align: center;
     }
 }
