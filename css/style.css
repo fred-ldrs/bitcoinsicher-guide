@@ -4,7 +4,8 @@
     --light-bg: #f9f9f9;
     --white: #ffffff;
     --dark-text: #333333;
-    --affiliate-height: 38px;
+    --affiliate-height: 28px;
+    --disclaimer-height: 25px;
 }
 
 * {
@@ -20,6 +21,7 @@ body {
     background-color: var(--white);
     /* Platz schaffen für Banner und Header */
     padding-top: calc(var(--affiliate-height) + 80px);
+    padding-bottom: var(--disclaimer-height);
 }
 
 .container {
@@ -32,8 +34,8 @@ body {
     background-color: var(--primary-color);
     color: white;
     text-align: center;
-    padding: 10px 0;
-    font-size: 14px;
+    padding: 6px 0;
+    font-size: 12px;
     position: fixed;
     top: 0;
     left: 0;
@@ -41,12 +43,33 @@ body {
     z-index: 110;
     min-height: var(--affiliate-height);
     box-sizing: border-box;
-    line-height: 1.4;
+    line-height: 1.3;
     white-space: normal;
 }
 .affiliate-banner a {
     color: white;
     font-weight: bold;
+    text-decoration: underline;
+}
+
+.disclaimer-banner {
+    background-color: var(--secondary-color);
+    color: white;
+    text-align: center;
+    padding: 4px 0;
+    font-size: 11px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 110;
+    min-height: var(--disclaimer-height);
+    box-sizing: border-box;
+    line-height: 1.2;
+}
+
+.disclaimer-banner a {
+    color: white;
     text-decoration: underline;
 }
 
@@ -177,6 +200,22 @@ ul {
     padding-left: 20px;
 }
 
+.horizontal-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding-left: 0;
+    list-style: none;
+}
+
+.horizontal-list li {
+    margin: 0;
+    padding: 5px 12px;
+    background-color: var(--light-bg);
+    border-radius: 5px;
+    font-size: 14px;
+}
+
 .highlight {
     color: var(--primary-color);
     font-weight: 600;
@@ -276,17 +315,32 @@ footer {
 
 @media (max-width: 768px) {
     :root {
-        --affiliate-height: 70px;
+        --affiliate-height: 50px;
+        --disclaimer-height: 35px;
     }
     body {
         padding-top: calc(var(--affiliate-height) + 60px);
+        padding-bottom: var(--disclaimer-height);
     }
     .affiliate-banner {
-        font-size: 13px;
-        padding: 10px 0 8px 0;
+        font-size: 11px;
+        padding: 8px 0 6px 0;
         min-height: var(--affiliate-height);
-        line-height: 1.3;
+        line-height: 1.2;
         white-space: normal;
+    }
+    .disclaimer-banner {
+        font-size: 10px;
+        padding: 6px 0;
+        min-height: var(--disclaimer-height);
+        line-height: 1.2;
+    }
+    .horizontal-list {
+        gap: 8px;
+    }
+    .horizontal-list li {
+        padding: 4px 10px;
+        font-size: 13px;
     }
     .header-container {
         flex-direction: column;
@@ -323,14 +377,31 @@ footer {
 }
 
 @media (max-width: 500px) {
+    :root {
+        --affiliate-height: 45px;
+        --disclaimer-height: 30px;
+    }
     body {
-        padding-top: 90px;
+        padding-top: calc(var(--affiliate-height) + 70px);
+        padding-bottom: var(--disclaimer-height);
     }
     .affiliate-banner {
-        font-size: 14px;
-        padding: 10px 0 8px 0;
-        min-height: unset;
-        line-height: 1.3;
+        font-size: 11px;
+        padding: 6px 0;
+        min-height: var(--affiliate-height);
+        line-height: 1.2;
+    }
+    .disclaimer-banner {
+        font-size: 10px;
+        padding: 5px 0;
+        min-height: var(--disclaimer-height);
+    }
+    .horizontal-list {
+        gap: 6px;
+    }
+    .horizontal-list li {
+        padding: 3px 8px;
+        font-size: 12px;
     }
     .logo {
         font-size: 18px;
