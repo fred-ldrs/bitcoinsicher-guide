@@ -379,3 +379,35 @@ footer {
         margin: 0;
     }
 }
+
+/* HEADER NAVIGATION NUR FÜR DIE HORIZONTAL-LIST */
+nav ul.horizontal-list {
+    display: flex;
+    flex-direction: row;
+    gap: 18px;
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+nav ul.horizontal-list li {
+    margin: 0;
+    position: relative;
+}
+nav ul.horizontal-list li:not(:last-child)::after {
+    content: "•";
+    margin-left: 14px;
+    color: var(--primary-color, #f7931a);
+    font-weight: bold;
+}
+
+/* Mobile: horizontal-list wird auf column gesetzt, Trenner entfernt */
+@media (max-width: 768px) {
+    nav ul.horizontal-list {
+        flex-direction: column;
+        gap: 8px;
+    }
+    nav ul.horizontal-list li:not(:last-child)::after {
+        content: '';
+        margin: 0;
+    }
+}
