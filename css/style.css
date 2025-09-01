@@ -5,7 +5,8 @@
     --white: #ffffff;
     --dark-text: #333333;
     --affiliate-height: 38px;
-    --header-height: 60px; /* Neue Variable für die Header-Höhe */
+    --header-height-desktop: 60px;
+    --header-height-mobile: 50px;
 }
 
 * {
@@ -19,7 +20,7 @@ body {
     line-height: 1.6;
     color: var(--dark-text);
     background-color: var(--white);
-    padding-top: calc(var(--affiliate-height) + var(--header-height)); /* Verwende Header-Höhe */
+    padding-top: calc(var(--affiliate-height) + var(--header-height-desktop));
 }
 
 .container {
@@ -33,14 +34,14 @@ body {
     background-color: var(--primary-color);
     color: white;
     text-align: center;
-    padding: 10px 0;
+    padding: 0;
     font-size: 14px;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 110;
-    min-height: var(--affiliate-height);
+    height: var(--affiliate-height);
     box-sizing: border-box;
     line-height: 1.4;
     white-space: normal;
@@ -79,7 +80,7 @@ header {
     left: 0;
     width: 100%;
     z-index: 100;
-    height: var(--header-height);
+    height: var(--header-height-desktop);
     display: flex;
     align-items: center;
 }
@@ -142,15 +143,30 @@ nav ul.horizontal-list li:not(:last-child)::after {
 
 /* Mobiles Layout: Header-Navi wird vertikal, Trenner werden entfernt */
 @media (max-width: 768px) {
+    body {
+        padding-top: calc(var(--affiliate-height) + var(--header-height-mobile));
+    }
+    
+    header {
+        height: var(--header-height-mobile);
+    }
+    
     .header-container {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
         padding: 0 15px;
     }
     
     .mobile-menu-toggle {
-        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+    }
+    
+    .logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
     }
     
     nav#main-nav {
@@ -392,30 +408,13 @@ footer {
 }
 
 @media (max-width: 500px) {
-    :root {
-        --header-height: 50px; /* Kleinere Header-Höhe für mobile Ansicht */
-    }
-    
-    body {
-        padding-top: calc(var(--affiliate-height) + var(--header-height));
-    }
-    
     .affiliate-banner {
         font-size: 13px;
-        padding: 8px 0;
-        min-height: var(--affiliate-height);
         line-height: 1.3;
-        display: flex;
-        align-items: center;
-        justify-content: center;
     }
     
     .logo {
         font-size: 18px;
-    }
-    
-    header {
-        height: var(--header-height);
     }
     
     .hero {
