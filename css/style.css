@@ -18,7 +18,7 @@ body {
     line-height: 1.6;
     color: var(--dark-text);
     background-color: var(--white);
-    padding-top: calc(var(--affiliate-height) + 80px);
+    padding-top: calc(var(--affiliate-height) + 80px); /* Anpassung für Header + Affiliate-Banner */
 }
 
 .container {
@@ -27,6 +27,7 @@ body {
     padding: 0 20px;
 }
 
+/* Affiliate Banner - fest am oberen Rand */
 .affiliate-banner {
     background-color: var(--primary-color);
     color: white;
@@ -61,14 +62,16 @@ body {
     vertical-align: middle;
 }
 
+/* Header - direkt unter dem Affiliate-Banner fixiert */
 header {
     background-color: var(--white);
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     padding: 20px 0;
-    position: sticky;
-    top: var(--affiliate-height);
+    position: fixed; /* Änderung von sticky zu fixed */
+    top: var(--affiliate-height); /* Direkt unter dem Affiliate-Banner */
+    left: 0;
+    width: 100%;
     z-index: 100;
-    transition: top 0.2s;
 }
 
 .header-container {
@@ -139,7 +142,7 @@ nav ul.horizontal-list li:not(:last-child)::after {
     
     nav#main-nav {
         position: absolute;
-        top: 60px;
+        top: 100%; /* Direkt unter dem Header */
         left: 0;
         width: 100%;
         background-color: rgba(255, 255, 255, 0.98);
