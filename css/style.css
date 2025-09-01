@@ -18,6 +18,8 @@ body {
     line-height: 1.6;
     color: var(--dark-text);
     background-color: var(--white);
+    /* Platz schaffen für Banner und Header */
+    padding-top: calc(var(--affiliate-height) + 80px);
 }
 
 .container {
@@ -111,6 +113,7 @@ nav ul li a:hover {
     font-size: 40px;
     margin-bottom: 20px;
     color: var(--secondary-color);
+    margin-top: 0.5em;
 }
 
 .hero p {
@@ -273,9 +276,11 @@ footer {
 
 @media (max-width: 768px) {
     :root {
-        --affiliate-height: 70px; /* Platz für mehrzeiligen Bannertext */
+        --affiliate-height: 70px;
     }
-
+    body {
+        padding-top: calc(var(--affiliate-height) + 60px);
+    }
     .affiliate-banner {
         font-size: 13px;
         padding: 10px 0 8px 0;
@@ -300,6 +305,7 @@ footer {
     }
     .hero h1 {
         font-size: 32px;
+        margin-top: 1em;
     }
     .section-content {
         flex-direction: column !important;
@@ -317,9 +323,14 @@ footer {
 }
 
 @media (max-width: 500px) {
+    body {
+        padding-top: 90px;
+    }
     .affiliate-banner {
-        font-size: 12px;
-        padding: 7px 0 6px 0;
+        font-size: 14px;
+        padding: 10px 0 8px 0;
+        min-height: unset;
+        line-height: 1.3;
     }
     .logo {
         font-size: 18px;
@@ -329,5 +340,9 @@ footer {
     }
     .hero {
         padding: 50px 0;
+    }
+    .hero h1 {
+        font-size: 22px;
+        margin-top: 1.2em;
     }
 }
