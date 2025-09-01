@@ -281,4 +281,27 @@
         </div>
     </footer>
 </body>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const mainNav = document.getElementById('main-nav');
+        const menuLinks = mainNav.querySelectorAll('a');
+        
+        // Toggle mobile menu
+        mobileMenuToggle.addEventListener('click', function() {
+            mainNav.classList.toggle('active');
+            mobileMenuToggle.classList.toggle('active');
+        });
+        
+        // Close menu when clicking on a link
+        menuLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mainNav.classList.remove('active');
+                mobileMenuToggle.classList.remove('active');
+            });
+        });
+    });
+</script>
+    
 </html>
